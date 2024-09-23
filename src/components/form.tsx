@@ -32,7 +32,7 @@ export const Form = ({
           placeholder="عدد اول را وارد کنید"
         />
         {errors.width.length > 0 && (
-          <p className="mt-2 font-vazir text-xs italic text-red-500">
+          <p className="mt-2 h-6 font-vazir text-xs italic text-red-500">
             {errors.width.join(", ")}
           </p>
         )}
@@ -55,7 +55,7 @@ export const Form = ({
           placeholder="عدد دوم را وارد کنید"
         />
         {errors.height.length > 0 && (
-          <p className="mt-2 font-vazir text-xs italic text-red-500">
+          <p className="mt-2 h-6 font-vazir text-xs italic text-red-500">
             {errors.height.join(", ")}
           </p>
         )}
