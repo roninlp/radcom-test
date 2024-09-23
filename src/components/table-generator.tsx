@@ -16,7 +16,6 @@ export const TableGenerator: React.FC<TableGeneratorProps> = ({
 }) => {
   const [cellValues, setCellValues] = useState<CellData[][]>([]);
 
-  // initialize the table with empty cells
   useEffect(() => {
     const initialCellValues = Array(height)
       .fill(null)
@@ -28,7 +27,6 @@ export const TableGenerator: React.FC<TableGeneratorProps> = ({
     setCellValues(initialCellValues);
   }, [width, height]);
 
-  // update the cell value when the user types in the input and validate the input
   const handleCellChange = (row: number, col: number, value: string) => {
     const newCellValues = [...cellValues];
     const numValue = parseFloat(value);
@@ -38,7 +36,6 @@ export const TableGenerator: React.FC<TableGeneratorProps> = ({
     setCellValues(newCellValues);
   };
 
-  // handle sorting the table
   const sortRows = () => {
     const sortedCellValues = cellValues.map((row, rowIndex) => {
       const validCells = row.filter(
@@ -69,7 +66,9 @@ export const TableGenerator: React.FC<TableGeneratorProps> = ({
               type="text"
               value={cell.value}
               onChange={(e) => handleCellChange(i, j, e.target.value)}
-              className={`w-full text-center ${cell.isValid ? "" : "bg-red-200"}`}
+              className={`h-10 w-full text-center transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                cell.isValid ? "bg-white" : "bg-red-100"
+              }`}
             />
           </td>
         ))}
@@ -78,15 +77,15 @@ export const TableGenerator: React.FC<TableGeneratorProps> = ({
   };
 
   return (
-    <div className="mt-8 flex h-full w-full flex-col gap-4">
-      <div className="w-full overflow-auto">
-        <table className="w-full border-collapse">
+    <div className="mt-8 flex h-full w-full flex-col gap-6">
+      <div className="w-full overflow-auto rounded-lg shadow-lg">
+        <table className="w-full border-collapse bg-white">
           <tbody>{renderTable()}</tbody>
         </table>
       </div>
       <button
         onClick={sortRows}
-        className="mb-4 rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600 disabled:bg-gray-400"
+        className="mb-4 transform rounded-lg bg-green-500 px-6 py-3 font-bold text-white transition duration-200 hover:scale-105 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-400"
       >
         مرتب کن
       </button>
