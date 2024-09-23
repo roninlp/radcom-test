@@ -31,11 +31,9 @@ export const Form = ({
           className="w-full rounded-lg border border-gray-300 p-3 text-center font-vazir text-lg transition duration-200 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="عدد اول را وارد کنید"
         />
-        {errors.width.length > 0 && (
-          <p className="mt-2 h-6 font-vazir text-xs italic text-red-500">
-            {errors.width.join(", ")}
-          </p>
-        )}
+        <p className="mt-2 h-2 font-vazir text-xs italic text-red-500">
+          {errors.width.length > 0 && errors.width.join(", ")}
+        </p>
       </div>
 
       <div className="mb-6">
@@ -54,11 +52,9 @@ export const Form = ({
           className="w-full rounded-lg border border-gray-300 p-3 text-center font-vazir text-lg transition duration-200 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="عدد دوم را وارد کنید"
         />
-        {errors.height.length > 0 && (
-          <p className="mt-2 h-6 font-vazir text-xs italic text-red-500">
-            {errors.height.join(", ")}
-          </p>
-        )}
+        <p className="mt-2 h-2 font-vazir text-xs italic text-red-500">
+          {errors.height.length > 0 && errors.height.join(", ")}
+        </p>
       </div>
 
       <button
